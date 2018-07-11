@@ -6,4 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  tabSelected = 'recipe';
+
+  constructor() {
+  }
+
+  onTabSelected(tab: string) {
+    this.tabSelected = tab;
+  }
 }
