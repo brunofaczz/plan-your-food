@@ -32,6 +32,10 @@ export class RecipeService {
     return this.recipeSelected;
   }
 
+  getRecipeById(id: number) {
+    return this.recipes[id];
+  }
+
   setRecipeSelected(recipe: Recipe) {
     this.recipeSelected.emit(recipe);
   }
