@@ -3,6 +3,7 @@ import 'rxjs/add/operator/mergeMap';
 
 import {RecipeService} from '../recipes/recipe.service';
 import {ShoppingListService} from '../shopping-list/shopping-list.service';
+import {AuthService} from '../auth/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ import {ShoppingListService} from '../shopping-list/shopping-list.service';
 })
 export class HeaderComponent implements OnInit {
   constructor(private recipesService: RecipeService,
-              private shoppingListService: ShoppingListService) {
+              private shoppingListService: ShoppingListService,
+              private authService: AuthService) {
   }
 
   ngOnInit() {
@@ -26,6 +28,10 @@ export class HeaderComponent implements OnInit {
   onFetch() {
     this.recipesService.getRecipesFromServer();
     this.shoppingListService.getShoppingListFromServer();
+  }
+
+  onLogout() {
+    this.authService.logout();
   }
 
 }
