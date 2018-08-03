@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/mergeMap';
 
-import {RecipeService} from '../recipes/recipe.service';
-import {ShoppingListService} from '../shopping-list/shopping-list.service';
-import {AuthService} from '../auth/services/auth.service';
+import {RecipeService} from '../../recipes/recipe.service';
+import {ShoppingListService} from '../../shopping-list/shopping-list.service';
+import {AuthService} from '../../auth/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -32,6 +32,10 @@ export class HeaderComponent implements OnInit {
 
   onLogout() {
     this.authService.logout();
+  }
+
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
   }
 
 }
